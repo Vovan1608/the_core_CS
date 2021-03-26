@@ -13,7 +13,7 @@ The largest integer divisible by 3 and not larger than 10 is 9.
 */
 
 function maxMultiple(divisor, bound) {
-  return Math.floor(bound / divisor) * divisor;
+  return bound - (bound % divisor);
 }
 
 const divisor = 4;
