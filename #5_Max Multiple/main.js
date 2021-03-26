@@ -12,9 +12,11 @@ maxMultiple(divisor, bound) = 9.
 The largest integer divisible by 3 and not larger than 10 is 9.
 */
 
-function maxMultiple(divisor, bound) {}
+function maxMultiple(divisor, bound) {
+  return Math.floor(bound / divisor) * divisor;
+}
 
-const divisor = 3;
+const divisor = 4;
 const bound = 10;
 
 const add = document.querySelector("#add");
