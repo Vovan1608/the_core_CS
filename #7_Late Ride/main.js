@@ -15,7 +15,13 @@ lateRide(n) = 14.
 808 minutes mean that it's 13:28 now, so the answer should be 1 + 3 + 2 + 8 = 14.
 */
 
-function lateRide(n) {}
+function lateRide(n) {
+  const MIN_IN_HOUR = 60;
+  return [
+    ...String(Math.floor(n / MIN_IN_HOUR)),
+    ...String(n % MIN_IN_HOUR),
+  ].reduce((sum, next) => Number(sum) + Number(next));
+}
 
 const n = 808; // -> 14
 
