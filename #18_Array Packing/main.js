@@ -21,7 +21,16 @@ After packing these into one number we get 00000000 01010101 00011000 (spaces ar
 */
 
 function arrayPacking(a) {
+	return parseInt(a.reverse().map(el => {
+		if (el.toString(2).length === 8) {
+			return el.toString(2);
+		}  else {
+			const dif = 8 - el.toString(2).length;
+			return "0".repeat(dif) + el.toString(2);
+		}
+	}).join(""), 2);
 
+	//a.reduceRight((pre, val) => pre * 256 + val, 0)
 }
 
 const a = [24, 85, 0];
@@ -33,7 +42,7 @@ add.style = `
 	text-align: center;
 	border: 2px solid #000;
 	border-radius: 7px;
-	box-shadow: inset 2px 2px 5px rgba(154, 147, 140, 0.5), 1px 1px 5px rgba(255, 255, 255, 1);
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 `;
 
 const el = document.createElement("div");
