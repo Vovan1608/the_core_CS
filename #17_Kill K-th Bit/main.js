@@ -16,12 +16,14 @@ The 4th bit is 0 already (looks like the Mad Coder forgot to encrypt this number
 */
 
 function killKthBit(n, k) {
-  return [...n.toString(2)].map((el, ind) => {
+  return parseInt([...n.toString(2)].map((el, ind) => {
 		if (ind === n.toString(2).length - k) {
 			el = 0;
 		}
 		return el;
-	}).join("");
+	}).join(""), 2);
+
+	// n & ~(1 << k - 1);
 }
 
 const n = 37;
