@@ -11,18 +11,17 @@ Thus, the answer is 23 = 8.
 */
 
 function secondRightmostZeroBit(n) {
-	const secondZeroIndex = 0;
-	return 2 ** [...n.toString(2)].filter((el, i) => {
-			if (el === 0) {
-					secondZeroIndex++;
-			}
-			if (secondZeroIndex === 2) {
-					return i;
-			}
-	})[0];
+	return 2 ** (Number([...n.toString(2)].reverse().map((el, i) => {
+		if (Number(el) === 0) {
+			return i;
+		}
+	}).join("")[1]));
+
+	// return ~(n |= -~n) & -~n;
 }
 
-const n = 37;
+const n = 37; // -> 8 = 2 ** 3
+// const n = 83748; // -> 2 = 2 ** 1
 
 document.body.style.backgroundColor = "#61dafb";
 
@@ -31,11 +30,11 @@ add.style = `
 	background-color: #f1f5f8;
 	font-size: 36px;
 	text-align: center;
-	weight: 50%;
+	width: 50%;
 	margin: 0 auto;
 	border: 2px solid #000;
 	border-radius: 7px;
-	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px(0,0,0,0.22)
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
 `;
 
 const el = document.createElement("div");
