@@ -26,13 +26,17 @@ function additionWithoutCarrying(param1, param2) {
 	const arrParam1 = getArrFromNumReverse(param1);
 	const arrParam2 = getArrFromNumReverse(param2);
 	const size = arrParam1.length > arrParam2.length ? arrParam1.length : arrParam2.length;
+	const arrResNum = [];
 
 	for (let i = 0; i < size; i++) {
 		if ( arrParam1[i] && arrParam2[i]) {
-			[...String(arrParam1[i] + arrParam2[i])][1]
+			arrResNum.push(Number([...String(arrParam1[i] + arrParam2[i])].reverse()[0]));
+		} else {
+			arrResNum.push(arrParam1[i] || arrParam2[i]);
 		}
 	}
-	return ;
+	
+	return +(arrResNum.reverse().join(""));
 }
 
 const getArrFromNumReverse = (num) => [...String(num)].map(el => Number(el)).reverse();
