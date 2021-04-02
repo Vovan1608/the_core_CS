@@ -23,15 +23,19 @@ There is no digit in the first number corresponding to the leading digit of the 
 */
 
 function additionWithoutCarrying(param1, param2) {
-	const arrParam1 = getArrFromNum(param1);
-	const arrParam2 = getArrFromNum(param2);
-	const size = arrParam1.length > arrParam2.length ? arrParam1.length : arrParam2.length
+	const arrParam1 = getArrFromNumReverse(param1);
+	const arrParam2 = getArrFromNumReverse(param2);
+	const size = arrParam1.length > arrParam2.length ? arrParam1.length : arrParam2.length;
 
-	for (let i = )
-	return getArrFromNum(param1);
+	for (let i = 0; i < size; i++) {
+		if ( arrParam1[i] && arrParam2[i]) {
+			[...String(arrParam1[i] + arrParam2[i])][1]
+		}
+	}
+	return ;
 }
 
-const getArrFromNum = (num) => [...String(num)].map(el => Number(el));
+const getArrFromNumReverse = (num) => [...String(num)].map(el => Number(el)).reverse();
 
 const param1 = 456;
 const param2 = 1734;
