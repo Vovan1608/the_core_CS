@@ -22,7 +22,7 @@ countBlackCells(n, m) = 7.
 
 const gcd = (a, b) => {
 	while (b) {
-			[a, b] = [b, a % b];
+		[a, b] = [b, a % b];
 	}
 
 	return a;
