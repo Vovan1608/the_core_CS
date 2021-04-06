@@ -30,24 +30,23 @@ The sequence goes as follows: 103 -> 10 -> 1 -> 1, 4 elements altogether.
 */
 
 function squareDigitsSequence(a0) {
-	let res = 1;
-	let a = a0;
-	let temp = 0;
-	
-	while (temp !== a0 || temp === 1) {
-			if (a < 10) {
-					temp = a ** 2;
-			} else {
-					temp = [...String(a)].map(el => Number(el) ** 2).reduce((sum, next) => sum + next);
-					a = temp;
-			}
-			res++;
+	let curr = a0;
+	let prev = [];
+	while(prev.indexOf(curr) === -1) {
+		prev.push(curr);
+		let next = 0;
+
+		while(curr > 0) {
+			next += (curr % 10) * (curr % 10);
+			curr = Math.floor(curr / 10);
+		}
+		curr = next;
 	}
-	
-	return res;
+	return prev.length + 1;
 }
 
-const a0 = 16;
+// const a0 = 16; // -> 9
+const a0 =103; // -> 4
 
 document.body.style.backgroundColor = "#61dafb";
 
