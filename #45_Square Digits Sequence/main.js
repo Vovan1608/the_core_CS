@@ -37,9 +37,10 @@ function squareDigitsSequence(a0) {
 		let next = 0;
 
 		while(curr > 0) {
-			next += (curr % 10) * (curr % 10);
+			next += (curr % 10) ** 2;
 			curr = Math.floor(curr / 10);
 		}
+
 		curr = next;
 	}
 	return prev.length + 1;
