@@ -25,17 +25,20 @@ The following numbers will be printed: 8, 9, 10.
 
 function pagesNumberingWithInk(current, numberOfDigits) {
 	let str = [...String(current)];
-
-	while (str.length < numberOfDigits ) {
+	
+    while (str.length <= numberOfDigits ) {
 		current++;
 		str = [...str, ...String(current)];
 	}
-
-	return current;
+    
+	return current - 1;
 }
 
-const current = 8;
-const numberOfDigits = 4;
+// const current = 8;
+// const numberOfDigits = 4;
+
+const current = 1;
+const numberOfDigits = 5; // -> 5
 
 document.body.style.backgroundColor = "#61dafb";
 
@@ -49,7 +52,7 @@ app.style = `
 	border: 2px solid #000;
 	border-radius: 7px;
 	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-;`
+`;
 
 const el = document.createElement("div");
 el.textContent = pagesNumberingWithInk(current, numberOfDigits);
