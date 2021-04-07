@@ -24,7 +24,14 @@ The following numbers will be printed: 8, 9, 10.
 */
 
 function pagesNumberingWithInk(current, numberOfDigits) {
+	let str = [...String(current)];
 
+	while (str.length < numberOfDigits ) {
+		current++;
+		str = [...str, ...String(current)];
+	}
+
+	return current;
 }
 
 const current = 8;
