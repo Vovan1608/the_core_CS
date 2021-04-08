@@ -14,7 +14,29 @@ The following picture illustrates the example, and the 23 points are marked gree
 */
 
 function rectangleRotation(a, b) {
+	let pt = 0;
+	let radius = Math.pow(a /2 , 2) + Math.pow(b / 2, 2);
+	radius = Math.ceil(Math.pow(radius, 0.5));
 
+	let degree = 45;
+	let radians = degree * Math.PI / 180;
+
+	for (let i = -radius; i <= radius + 1; i++) {
+
+		for (let j = -radius; j <= radius + 1; j++) {
+			let x = i * Math.cos(radians) - j * Math.sin(radians);
+			let y = i * Math.sin(radians) + j * Math.cos(radians);
+			if (-a / 2 <= x && x <= a / 2 && -b / 2 <= y && y <= b / 2 ) {
+				pt += 1;
+			}
+		}
+	}
+
+	return pt;
+
+	// let pointsA = Math.floor(Math.sqrt(a * a / 2)),
+  //     pointsB = Math.floor(Math.sqrt(b * b / 2));
+  // return (pointsA * pointsB + Math.floor((pointsA + pointsB) / 2)) * 2 + 1;
 }
 
 const a = 6;
