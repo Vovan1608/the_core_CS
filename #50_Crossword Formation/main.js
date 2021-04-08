@@ -48,3 +48,5 @@ function check(a, b, c, d) {
 }
 
 const words = ["crossword", "square", "formation", "something"];
+const res = crosswordFormation(words);
+console.log(res);
