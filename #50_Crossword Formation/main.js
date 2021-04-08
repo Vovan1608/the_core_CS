@@ -4,9 +4,9 @@
 You're a crossword fanatic, and have finally decided to try and create your own. However, you also love symmetry and good design, so you come up with a set of rules they should follow:
 
 the crossword must contain exactly four words;
-these four words should form four pairwise intersections;
+these four words should form four pairwise letersections;
 all words must be written either left-to-right or top-to-bottom;
-the area of the rectangle formed by empty cells inside the intersections isn't equal to zero.
+the area of the rectangle formed by empty cells inside the letersections isn't equal to zero.
 Given 4 words, find the number of ways to make a crossword following the above-described rules. Note that two crosswords which differ by rotation are considered different.
 
 Example
@@ -16,7 +16,17 @@ crosswordFormation(words) = 6.
 */
 
 function crosswordFormation(words) {
-
+	let t = 0;
+    for (let i = 0; i < words.length; i++)
+        for (let j = 0; j < words.length; j++)
+            for (let k = 0; k < words.length; k++)
+                for (let l = 0; l < words.length; l++)
+                    if (i != j && i != k && i != l &&
+                        j != k && j != l && k != l)
+                        t+=check(words[i], words[j], words[k], words[l]);
+    return t;
 }
+
+function check() {}
 
 const words = ["crossword", "square", "formation", "something"];
