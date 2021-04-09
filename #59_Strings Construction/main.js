@@ -21,5 +21,14 @@ const app = document.getElementById("app");
 app.style = `
 	background-color: #f1f5f8;
 	font-size: 36px;
-	
+	width: 50%;
+	text-align: center;
+	margin: 200px auto;
+	border: 2px solid #222;
+	border-radius: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 `;
+
+const el = document.createElement("div");
+el.textContent = stringsConstruction(a, b);
+
+app.append(el);
