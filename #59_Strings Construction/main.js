@@ -17,3 +17,9 @@ const b = "abccba";
 
 document.body.style.backgroundColor = "#61dafb";
 
+const app = document.getElementById("app");
+app.style = `
+	background-color: #f1f5f8;
+	font-size: 36px;
+	
+`;
