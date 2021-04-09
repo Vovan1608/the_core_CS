@@ -9,7 +9,18 @@ For a = "ab" and b = "abcbcb", the output should be stringsConstruction(a, b) = 
 */
 
 function stringsConstruction(a, b) {
-	return a;
+	let arrForChar = [];
+	let arrForWords = [];
+	for (let i = 0; i < b.length; i++) {
+		if ([...a].includes(b[i])) {
+			arrForChar.push(b[i]);
+		}
+		if (arrForChar.join("") === a) {
+			arrForWords.push(arrForChar.join(""));
+		}
+	}
+
+	return arrForWords.length;
 }
 
 const a = "abc";
@@ -25,7 +36,8 @@ app.style = `
 	text-align: center;
 	margin: 200px auto;
 	border: 2px solid #222;
-	border-radius: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+	border-radius: 7px;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 `;
 
 const el = document.createElement("div");
