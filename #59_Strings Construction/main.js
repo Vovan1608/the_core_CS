@@ -11,20 +11,24 @@ For a = "ab" and b = "abcbcb", the output should be stringsConstruction(a, b) = 
 function stringsConstruction(a, b) {
 	let arrForChar = [];
 	let arrForWords = [];
-	for (let i = 0; i < b.length; i++) {
-		if ([...a].includes(b[i])) {
-			arrForChar.push(b[i]);
+	for (let i of b) {
+		if ([...a].includes(i)) {
+			arrForChar.push(i);
 		}
-		if (arrForChar.join("") === a) {
+		if (arrForChar.sort().join("") === [...a].sort().join("")) {
 			arrForWords.push(arrForChar.join(""));
+			arrForChar.length = 0;
 		}
 	}
 
 	return arrForWords.length;
 }
 
-const a = "abc";
-const b = "abccba";
+// const a = "abc";
+// const b = "abccba"; // -> 2
+
+const a = "hnccv";
+const b = "hncvohcjhdfnhonxddcocjncchnvohchnjohcvnhjdhihsn"; // -> 3
 
 document.body.style.backgroundColor = "#61dafb";
 
