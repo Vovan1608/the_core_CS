@@ -10,26 +10,20 @@ For a = "ab" and b = "abcbcb", the output should be stringsConstruction(a, b) = 
 
 function stringsConstruction(a, b) {
 	let count = 0;
-  let finding = true;
-  let pos;
-  b = [...b];
-  while (finding) {
-    for (let i of a) {
-      pos = b.indexOf(i);
-      if (pos >= 0) {
-        b.splice(pos, 1);
-      } else {
-        finding = false;
-        break;
-      }
-    }
 
-    if (finding) {
-      count++;
-    }
-  }
+    while (true) {
 
-  return count;
+			for (let x of a) {
+
+				if (b.indexOf(x) < 0) {
+					return count;
+				}
+
+				b = b.replace(x,"");
+			}
+
+			count ++;
+    }
 }
 
 // const a = "abc";
