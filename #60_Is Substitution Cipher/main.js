@@ -19,25 +19,7 @@ isSubstitutionCipher(string1, string2) = false.
 */
 
 function isSubstitutionCipher(string1, string2) {
-	const string1Count = [];
-	const string2Count = [];
-
-	for (let i of string1) {
-		string1Count.push([...string1].filter(el => el === i).length);
-	}
-
-	for (let i of string2) {
-		string2Count.push([...string2].filter(el => el === i).length);
-	}
-
-	for (let i of string1Count) {
-		if (
-			string1Count.filter(el => el === string1Count[i]) !==
-			string2Count.filter(el => el === string1Count[i])
-		) return false;
-	}
-
-	return true;
+	return [...string1].every((v, i) => string1.indexOf(v) === string2.indexOf(string2[i]));
 }
 
 const string1 = "aacb";
