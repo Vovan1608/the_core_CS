@@ -9,14 +9,27 @@ For a = "ab" and b = "abcbcb", the output should be stringsConstruction(a, b) = 
 */
 
 function stringsConstruction(a, b) {
-	const arrOfChar = [...b].filter(el => [...a].includes(el)).sort();
+	let count = 0;
+  let finding = true;
+  let pos;
+  b = [...b];
+  while (finding) {
+    for (let i of a) {
+      pos = b.indexOf(i);
+      if (pos >= 0) {
+        b.splice(pos, 1);
+      } else {
+        finding = false;
+        break;
+      }
+    }
 
-	for (let i of a) {
-		if (!arrOfChar.includes(i)) {
-			return 0;
-		}
-	}
+    if (finding) {
+      count++;
+    }
+  }
 
+  return count;
 }
 
 // const a = "abc";
