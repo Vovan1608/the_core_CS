@@ -19,6 +19,16 @@ function arrayConversion(inputArray) {
 	return inputArray;
 }
 
+const getPairsSum = arr => {
+	let resArr = [];
+
+	for (let i = 0; i < arr.length; i += 2) {
+		resArr.push(arr[i] + arr[i + 1]);
+	}
+
+	return resArr;
+}
+
 const inputArray = [1, 2, 3, 4, 5, 6, 7, 8]; // -> 186
 
 document.body.style.backgroundColor = "#61dafb";
