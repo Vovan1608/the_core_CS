@@ -16,7 +16,20 @@ We have [1, 2, 3, 4, 5, 6, 7, 8] -> [3, 7, 11, 15] -> [21, 165] -> [186], so the
 */
 
 function arrayConversion(inputArray) {
-	return inputArray;
+	let flag = true;
+	let res = [...inputArray];
+
+	while (res.length !== 1) {
+		if (flag) {
+			res = getPairsSum(res);
+			flag = false;
+		} else {
+			res = getPairsMul(res);
+			flag = true;
+		}
+	}
+
+	return res;
 }
 
 const getPairsSum = arr => {
@@ -24,6 +37,16 @@ const getPairsSum = arr => {
 
 	for (let i = 0; i < arr.length; i += 2) {
 		resArr.push(arr[i] + arr[i + 1]);
+	}
+
+	return resArr;
+}
+
+const getPairsMul = arr => {
+	let resArr = [];
+
+	for (let i = 0; i < arr.length; i += 2) {
+		resArr.push(arr[i] * arr[i + 1]);
 	}
 
 	return resArr;
